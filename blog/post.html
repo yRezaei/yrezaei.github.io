@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Your Name</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="nav-brand">Your Name</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/#portfolio">Portfolio</a>
+                <a href="/blog/index.html">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content" id="postContent">
+                <!-- Blog post content will be dynamically inserted here -->
+            </div>
+            <a href="/blog/index.html" class="back-to-blog">← Back to Blog</a>
+        </div>
+    </article>
+
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M2 12h20" class="divide"/>
+            <circle cx="6" cy="6" r="2" class="light-icon" fill="currentColor"/>
+            <path d="M16 18a2 2 0 110-4 2 2 0 010 4z" class="dark-icon" fill="currentColor"/>
+        </svg>
+    </button>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="../scripts.js"></script>
+    <script src="./blog.js"></script>
+</body>
+</html>

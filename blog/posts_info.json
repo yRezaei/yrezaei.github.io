@@ -1,0 +1,25 @@
+{
+    "posts": [
+      {
+        "id": "getting-started-web-dev",
+        "title": "Getting Started with Web Development",
+        "date": "2024-01-15",
+        "excerpt": "Learn the basics of HTML, CSS, and JavaScript to start your web development journey.",
+        "link": "blog/getting-started-web-dev.html"
+      },
+      {
+        "id": "responsive-design",
+        "title": "Building Responsive Websites",
+        "date": "2024-01-10",
+        "excerpt": "Tips and tricks for creating websites that work well on all devices.",
+        "link": "blog/responsive-design.html"
+      },
+      {
+        "id": "version-control",
+        "title": "Introduction to Version Control",
+        "date": "2024-01-05",
+        "excerpt": "Learn how to use Git and GitHub to manage your code effectively.",
+        "link": "blog/version-control.html"
+      }
+    ]
+  }

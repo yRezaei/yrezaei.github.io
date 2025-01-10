@@ -1,0 +1,693 @@
+:root {
+    /* Primary colors from Foundations palette */
+    --primary-color: #3D52A0;
+    --secondary-color: #7091E6;
+    --accent-color: #8697C4;
+    
+    /* Background colors from Moon Phases palette */
+    --bg-color: #D3D9D4;
+    --card-bg: #ffffff;
+    --dark-accent: #c2cad893;
+    
+    /* Text colors for contrast */
+    --text-color: #212A31;
+    --text-light: #748D92;
+    
+    /* Shadows and overlays */
+    --card-shadow: 0 2px 4px rgba(33, 42, 49, 0.1);
+}
+
+[data-theme="dark"] {
+    --primary-color: #7091E6;
+    --secondary-color: #8697C4;
+    --accent-color: #124E66;
+    
+    --bg-color: #212A31;
+    --card-bg: #2E3944;
+    --dark-accent: #1c2a3b48;
+    
+    --text-color: #D3D9D4;
+    --text-light: #748D92;
+    
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.blog-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--card-bg);
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+.theme-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.toggle-switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border-radius: 50px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: var(--accent-color);
+}
+/* End of Navigation*/
+
+/* Update responsive styles for navbar */
+@media (max-width: 768px) {
+    .navbar {
+        width: calc(100% - 1rem);
+        top: 0.5rem;
+    }
+
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Hero Section */
+.hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.intro {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Blog Section */
+.blog, .blog-list {
+    padding: 8rem 0 4rem;
+    background-color: var(--bg-color);
+}
+
+.blog h2, .blog-list h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.post-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.post-date {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Blog Post */
+.blog-post {
+    padding: 8rem 0 4rem;
+}
+
+.post-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+.post-content h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-content h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+}
+
+.post-content h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem;
+}
+
+.post-content p {
+    margin-bottom: 1rem;
+}
+
+.back-to-blog {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.back-to-blog:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+    }
+
+    .theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .post-content h1 {
+        font-size: 2rem;
+    }
+
+    .post-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .post-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Add these styles to the end of your existing styles.css */
+
+/* Resume Styles */
+.resume {
+    padding: 8rem 0 4rem;
+    background-color: var(--bg-color);
+}
+
+.intro-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.intro-card h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.intro-card h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.intro-card p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.intro-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.intro-card a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.section.personal .name {
+    font-size: 1.8rem; /* Adjust the font size for the name */
+    font-weight: bold; /* Ensure the name stands out */
+    margin-bottom: 1rem; /* Add some spacing below the name */
+}
+
+.section.personal p {
+    font-size: 1rem; /* Standard font size for other info */
+    line-height: 1.6; /* Adds better spacing between lines */
+}
+
+.section.personal a {
+    color: var(--primary-color); /* Optional: use your theme's primary color */
+    text-decoration: none;
+}
+
+.section.personal a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.section h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.section ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.section ul li {
+    position: relative;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+}
+
+.section ul li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.section.experience {
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.section.experience h2 {
+    /* text-align: center; */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.section .card {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--dark-accent); /* Updated from --card-bg to --accent-color */
+    color: var(--text-color); /* Ensures text remains readable on the new card background */
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.section .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.section .card p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.section .card .location,
+.section .card .date {
+    font-style: italic;
+    color: var(--text-color);
+}
+
+.section .card ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+.section .card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.section .card h4 {
+    font-size: 1.2rem; /* Adjust the size as needed */
+    margin-bottom: 0.5rem; /* Add some spacing below the header */
+    /* color: var(--primary-color); */
+}
+
+.section .card .indented {
+    text-indent: 2rem; /* Indent the first line by 2rem */
+    margin-left: 1.5rem; /* Add a general left margin for further indentation */
+    font-size: 1rem; /* Ensure the font size is readable */
+    line-height: 1.6; /* Adjust line spacing for readability */
+    color: var(--text-color); /* Use your theme's text color */
+}
+
+.projects ul li strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.publications ul li {
+    margin-bottom: 1.5rem;
+}
+
+.publications a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.publications a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .resume {
+        padding: 6rem 1rem 2rem;
+    }
+
+    .intro-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .intro-card h1 {
+        font-size: 2.2rem;
+    }
+
+    .intro-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .experience .card {
+        padding-left: 1rem;
+    }
+}
+
+/* About page*/
+.about {
+    padding: 8rem 0 4rem;
+    background-color: var(--bg-color);
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-header h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.profile-intro {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.about-section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.section-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 6rem 1rem 2rem;
+    }
+
+    .about-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-section {
+        padding: 1.5rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .profile-intro {
+        padding: 1.5rem;
+    }
+}

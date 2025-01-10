@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Yashar A. Rezaei</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-brand">Yashar A. Rezaei</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="resume.html">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-header">
+                <h1>Hi, I'm Yashar</h1>
+                <div class="profile-intro">
+                    <div class="intro-text">
+                        <p class="subtitle">Full Stack Developer & Technical Writer</p>
+                        <p class="intro">
+                            I build web applications and write about software development.
+                            Currently working on interesting projects and sharing my knowledge through blog posts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="about-section">
+                <h2>Latest Blog Posts</h2>
+                <div class="posts-grid" id="blogPosts">
+                    <!-- Blog posts will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-toggle">
+        <span class="theme-text">Light Mode</span>
+        <label class="toggle-switch">
+            <input type="checkbox" aria-label="Toggle theme">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
