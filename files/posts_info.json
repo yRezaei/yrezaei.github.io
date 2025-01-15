@@ -1,0 +1,13 @@
+[
+    {
+      "title": "Scaling Your App the Right Way",
+      "description": "Insights into building distributed systems while keeping performance in check.",
+      "link": "https://example.com/scaling-apps"
+    },
+    {
+      "title": "The Power of TDD",
+      "description": "Explore how Test-Driven Development enhances maintainability and reduces bugs.",
+      "link": "https://example.com/tdd-article"
+    }
+  ]
+  

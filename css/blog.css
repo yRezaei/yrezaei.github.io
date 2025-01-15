@@ -1,0 +1,127 @@
+/***************************************************
+  BLOG PAGE SPECIFIC STYLES
+****************************************************/
+/* For a list of blog posts */
+
+.blog {
+    padding: 8rem 0 4rem;
+    background: transparent;
+}
+
+.blog-list {
+    padding: 8rem 0 4rem;
+    background: transparent;
+}
+
+/* Main heading on the blog page */
+.blog h2,
+.blog-list h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* Blog post listing layout */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.post-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.post-date {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/***************************************************
+  SINGLE BLOG POST PAGE (optional)
+****************************************************/
+.blog-post {
+    padding: 8rem 0 4rem;
+}
+
+.post-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+.post-content h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-content h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+}
+
+.post-content h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem;
+}
+
+.post-content p {
+    margin-bottom: 1rem;
+}
+
+.back-to-blog {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.back-to-blog:hover {
+    text-decoration: underline;
+}
+
+/***************************************************
+  RESPONSIVE ADJUSTMENTS (BLOG)
+****************************************************/
+@media (max-width: 768px) {
+    .blog, .blog-list {
+        padding: 6rem 1rem 2rem;
+    }
+
+    .blog h2,
+    .blog-list h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+}

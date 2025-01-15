@@ -1,0 +1,17 @@
+[
+  {
+    "title": "stdX",
+    "description": "A collection of C++ module.",
+    "link": "https://example.com/scaling-apps"
+  },
+  {
+    "title": "Project One",
+    "description": "A brief description of this project.",
+    "link": "projects.html"
+  },
+  {
+    "title": "Project Two",
+    "description": "Another project’s summary text goes here.",
+    "link": "https://github.com/yrezaei/project-two"
+  }
+]

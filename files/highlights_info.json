@@ -1,0 +1,13 @@
+[
+    {
+      "title": "React Summit",
+      "description": "A premier React conference happening in June.",
+      "link": "https://reactsummit.com"
+    },
+    {
+      "title": "CppCon",
+      "description": "Annual C++ conference discussing latest language features and best practices.",
+      "link": "https://cppcon.org"
+    }
+  ]
+  

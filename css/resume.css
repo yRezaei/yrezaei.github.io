@@ -1,0 +1,147 @@
+/*******************************************************
+  RESUME PAGE-SPECIFIC STYLES
+*******************************************************/
+.resume {
+    padding: 8rem 0 4rem;
+    background: transparent;
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.resume-header h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* Intro Card (top portion of Resume) */
+.intro-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.intro-card h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.intro-card h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.intro-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1.1rem;
+}
+
+.intro-card p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.intro-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.intro-card a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+/*******************************************************
+  publications
+*******************************************************/
+.subcontent {
+    display: block;
+    margin-bottom: 0.2rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.subcontent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.subcontent a {
+    display: block;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.subcontent a:hover {
+    color: var(--primary-color-dark);
+}
+
+.subcontent-meta {
+    margin-top: 0.1rem;
+    padding-top: 0.5rem;
+}
+
+.subcontent-meta .source {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.subcontent-meta .description {
+    color: var(--text-color);
+    padding: 0.25rem 0.75rem;
+    line-height: 1.3;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/*******************************************************
+  RESPONSIVE ADJUSTMENTS (RESUME)
+*******************************************************/
+@media (max-width: 768px) {
+    .resume {
+        padding: 6rem 1rem 2rem;
+    }
+
+    .intro-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .intro-card h1 {
+        font-size: 2.2rem;
+    }
+
+    .intro-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .experience .card {
+        padding-left: 1rem;
+    }
+}
