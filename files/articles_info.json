@@ -1,0 +1,53 @@
+[
+    {
+      "title": "Modern C++ Design Patterns Tutorial",
+      "description": "An in-depth tutorial on structural design patterns in modern C++, focusing on class composition to create flexible and maintainable software systems.",
+      "link": "https://www.geeksforgeeks.org/modern-c-design-patterns-tutorial/"
+    },
+    {
+      "title": "Software Architecture with C++",
+      "description": "A GitHub repository accompanying the book 'Software Architecture with C++', providing insights into designing modern systems using effective architecture concepts and design patterns with C++20.",
+      "link": "https://github.com/PacktPublishing/Software-Architecture-with-Cpp"
+    },
+    {
+      "title": "Top 10 Software Architecture Patterns to Follow in 2024",
+      "description": "An article discussing the top software architectural patterns essential for building resilient and adaptable software solutions.",
+      "link": "https://dzone.com/articles/top-10-software-architecture-patterns-to-follow"
+    },
+    {
+      "title": "Advanced C++: Strategies for Meta-objects and Reflective Programming",
+      "description": "An exploration of advanced template metaprogramming techniques, including type traits, template specialization, and reflective programming in C++.",
+      "link": "https://www.codewithc.com/advanced-c-strategies-for-meta-objects-and-reflective-programming/"
+    },
+    {
+      "title": "Advanced C++ Template Techniques: An Introduction to Meta-Programming",
+      "description": "A comprehensive study on metaprogramming for code generation, showcasing advanced template metaprogramming techniques in C++.",
+      "link": "https://conradsanderson.id.au/misc/sanderson_templates_lecture_uqcomp7305.pdf"
+    },
+    {
+      "title": "Advanced C++ Concurrency: The Art of Lock-Free Programming",
+      "description": "An in-depth look at lock-free programming in C++, discussing atomic operations, lock-free data structures, and thread safety.",
+      "link": "https://www.codewithc.com/advanced-c-concurrency-the-art-of-lock-free-programming/"
+    },
+    {
+      "title": "Efficient Multithreading in C++: Mutexes, Atomics, and Lock Guards",
+      "description": "A guide on multithreading in C++, covering mutexes, atomic operations, and best practices for thread synchronization.",
+      "link": "https://www.simplifycpp.org/?id=a0378"
+    },
+    {
+      "title": "C++ Concurrency: Exploring Advanced Thread Management",
+      "description": "An exploration of advanced thread management techniques in C++, including atomic operations and lock-free programming.",
+      "link": "https://www.codewithc.com/c-concurrency-exploring-advanced-thread-management/"
+    },
+    {
+      "title": "Advanced C++ Techniques for Efficient Coding in 2024",
+      "description": "A comprehensive guide to advanced C++ techniques, including move semantics, smart pointers, RAII, and concurrency for efficient coding.",
+      "link": "https://toxigon.com/advanced-c-plus-plus-techniques-for-efficient-coding"
+    },
+    {
+      "title": "Modern C++ Multithreading Techniques",
+      "description": "An article discussing modern C++ multithreading techniques, including the use of lock-free data structures and thread synchronization methods.",
+      "link": "https://www.w3computing.com/articles/modern-cpp-multithreading-techniques/"
+    }
+  ]
+  
