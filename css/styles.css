@@ -6,41 +6,61 @@
     --primary-color: #3D52A0;
     --secondary-color: #7091E6;
     --accent-color: #8697C4;
-    
+
     /* Background colors */
     --bg-color: #D3D9D4;
     --card-bg: #ffffff;
     --dark-accent: #c2cad893;
-    
+
     /* Text colors */
     --text-color: #212A31;
     --text-light: #748D92;
-    
+
     /* Shadows, etc. */
     --card-shadow: 0 2px 4px rgba(33, 42, 49, 0.1);
 
     --gradient-start: #D3D9D4;
     --gradient-middle: #c2cad893;
     --gradient-end: #D3D9D4;
+
+    --footer-bg: #f8f9fa;
+    /* Light gray or white-ish background */
+    --footer-text: #212A31;
+    /* Match normal text color */
+    --footer-border: #eaeaea;
+    /* Light border color */
+
+    --transition: all 0.3s ease;
+    --icon-size: 40px;
 }
 
 [data-theme="dark"] {
     --primary-color: #7091E6;
     --secondary-color: #8697C4;
     --accent-color: #305f72;
-    
+
     --bg-color: #212A31;
     --card-bg: #2E3944;
     --dark-accent: #1c2a3b48;
-    
+
     --text-color: #D3D9D4;
     --text-light: #748D92;
-    
+
     --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
     --gradient-start: #000000;
     --gradient-middle: #2c353b;
     --gradient-end: #000000;
+
+    --footer-bg: #2E3944;
+    /* Dark background for the footer */
+    --footer-text: #D3D9D4;
+    /* Matches your dark text color */
+    --footer-border: #4e5a66;
+    /* Dark border color */
+
+    --transition: all 0.3s ease;
+    --icon-size: 40px;
 }
 
 /***************************************************
@@ -53,17 +73,21 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Keep smooth scrolling on html if you like */
+    scroll-behavior: smooth;
+    /* Keep smooth scrolling on html if you like */
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-y: hidden; /* Hide any overflow on html */
+    overflow-y: hidden;
+    /* Hide any overflow on html */
 }
 
 body {
-    overflow-y: auto;   /* Body now handles scrolling */
+    overflow-y: auto;
+    /* Body now handles scrolling */
     scroll-behavior: smooth;
-    height: 100%;       /* or min-height: 100%; see note below */
+    height: 100%;
+    /* or min-height: 100%; see note below */
     margin: 0;
     padding: 0;
 
@@ -73,24 +97,24 @@ body {
     line-height: 1.6;
     color: var(--text-color);
 
-    background: linear-gradient(
-        135deg,
-        var(--gradient-start) 0%,
-        var(--gradient-middle) 50%,
-        var(--gradient-end) 100%
-    );
+    background: linear-gradient(135deg,
+            var(--gradient-start) 0%,
+            var(--gradient-middle) 50%,
+            var(--gradient-end) 100%);
     background-attachment: fixed;
 
     /* min-height: 100vh; <-- also an option if you prefer viewport-based height */
 }
 
 main {
-    flex: 1;               /* This tells main to expand and push the footer down */
+    flex: 1;
+    /* This tells main to expand and push the footer down */
 }
 
 /* Make main visible when JavaScript removes the hidden class */
 .visible {
-    display: block; /* Restore layout */
+    display: block;
+    /* Restore layout */
 }
 
 /***************************************************
@@ -115,73 +139,82 @@ main {
   THEME TOGGLE (floating button)
 ****************************************************/
 .theme-toggle {
-    position: relative; /* reset from your previous 'fixed' positioning */
-    bottom: auto;
-    right: auto;
-    transform: none;
-    z-index: 1; /* just in case you need a stacking context */
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
     padding: 0.75rem 1.25rem;
     border-radius: 50px;
-    border: none;
     cursor: pointer;
+    /* Pointer cursor for the toggle container */
     transition: transform 0.3s ease;
 }
 
-/* Optional: keep the hover effect if you like */
+/* Optional: hover effect */
 .theme-toggle:hover {
     transform: scale(1.05);
 }
 
-/* The rest of your theme-switching styles remain the same */
-.theme-text {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-/* The switch mechanism stays the same */
 .toggle-switch {
     position: relative;
     width: 48px;
     height: 24px;
+    cursor: pointer;
+    /* Pointer cursor for the toggle switch */
 }
 
 .toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
+    cursor: pointer;
+    /* Pointer cursor for the checkbox input */
 }
 
 .toggle-slider {
     position: absolute;
-    cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #ccc;
-    transition: 0.4s;
     border-radius: 24px;
+    transition: background-color 0.4s;
+    cursor: pointer;
+    /* Pointer cursor for the slider */
 }
 
-.toggle-slider:before {
+.toggle-circle {
     position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
+    top: 3px;
     left: 3px;
-    bottom: 3px;
+    width: 18px;
+    height: 18px;
     background-color: #fff;
-    transition: 0.4s;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s;
+    cursor: pointer;
+    /* Pointer cursor for the moving circle */
 }
 
-input:checked + .toggle-slider {
+.toggle-circle img.toggle-icon {
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    /* Disable interaction with the icon */
+}
+
+/* Toggle switch active (checked) state */
+input:checked+.toggle-slider {
     background-color: var(--primary-color);
 }
 
-input:checked + .toggle-slider:before {
+input:checked+.toggle-slider .toggle-circle {
     transform: translateX(24px);
+    /* Move the circle to the right */
 }
 
 @media (max-width: 768px) {
@@ -320,4 +353,179 @@ footer {
 
 .section-content p:last-child {
     margin-bottom: 0;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 4rem 2rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--footer-border);
+
+    /* If you don’t want the entire footer text left-aligned, 
+       you can set text-align: left for the containers or h4 only. */
+    text-align: left;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h4 {
+    /* Titles left-aligned */
+    text-align: left;
+    color: var(--footer-text);
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    display: inline-block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.icon:hover,
+.icon:focus {
+    filter: invert(34%) sepia(41%) saturate(1400%) hue-rotate(210deg) brightness(90%) contrast(90%);
+    transform: translateY(-3px); /* Add a subtle movement on hover */
+}
+
+.icon-linkedin {
+    background-image: url('/assets/icons/linkedin.svg');
+}
+
+.icon-github {
+    background-image: url('/assets/icons/github.svg');
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color);
+    padding-left: 0.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.1);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.copyright {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-legal a {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-legal a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-legal {
+        justify-content: center;
+    }
 }

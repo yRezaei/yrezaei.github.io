@@ -2,28 +2,28 @@
   {
       "title": "Clean Architecture",
       "description": "A must-read by Robert C. Martin, focusing on maintainable software design.",
-      "image": "img/clean_architecture.png",
+      "image": "assets/img/clean_architecture.png",
       "link": "https://www.goodreads.com/book/show/18043011-clean-architecture",
       "author": "Robert C. Martin"
   },
   {
       "title": "Effective C++",
       "description": "Scott Meyers’ essential guidelines for writing robust C++ code.",
-      "image": "img/effective_c++.png",
+      "image": "assets/img/effective_c++.png",
       "link": "https://www.goodreads.com/book/show/10310.Effective_C",
       "author": "Scott Meyers"
   },
   {
       "title": "High-Performance Second Edition",
       "description": "An in-depth guide to optimizing and functioning with high-performance systems.",
-      "image": "img/high_performance.png",
+      "image": "assets/img/high_performance.png",
       "link": "https://www.goodreads.com/book/show/56686076-c-high-performance",
       "author": "Bjorn Andrist, Viktor Sehr"
   },
   {
       "title": "Software Design Principles and Patterns",
       "description": "A comprehensive guide to designing high-quality software systems.",
-      "image": "img/software_design_principles.png",
+      "image": "assets/img/software_design_principles.png",
       "link": "https://www.amazon.de/-/en/Software-Design-Principles-Patterns-High-Quality/dp/1098113160",
       "author": "Klaus Iglberger"
   }
