@@ -1,25 +1,35 @@
-<!-- Save as navbar.html in the same directory as index.html (or adjust paths if different) -->
 <nav class="navbar">
     <div class="nav-content">
-        <!-- Nav menu links on the left -->
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="blog.html">Posts</a>
-            <a href="about.html">About me</a>
-            <a href="resume.html">Resume</a>
+      <!-- Optional: Brand or Logo -->
+      <!-- <a href="index.html" class="nav-brand">MySite</a> -->
+  
+      <!-- .nav-right container to position the dropdown under hamburger -->
+      <div class="nav-right">
+        <div class="hamburger" id="hamburgerBtn">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-
-        <!-- Theme toggle on the right -->
-        <div class="theme-toggle">
-            <label class="toggle-switch">
-                <input type="checkbox" aria-label="Toggle theme">
-                <span class="toggle-slider">
-                    <span class="toggle-circle">
-                        <img class="toggle-icon" id="toggleIcon" src="assets/icons/sun.svg" alt="Theme Icon">
-                    </span>
-                </span>
-            </label>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html">Posts</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
         </div>
+      </div>
+  
+      <!-- Theme Toggle -->
+      <div class="theme-toggle">
+        <label class="toggle-switch">
+          <input type="checkbox" aria-label="Toggle theme">
+          <span class="toggle-slider">
+            <span class="toggle-circle">
+              <img class="toggle-icon" id="toggleIcon" src="assets/icons/sun.svg" alt="Theme Icon">
+            </span>
+          </span>
+        </label>
+      </div>
     </div>
-</nav>
+  </nav>
+  

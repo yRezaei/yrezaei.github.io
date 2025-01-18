@@ -18,6 +18,21 @@ function loadHTML(id, file, callback) {
         .catch(error => console.error(`Failed to load ${file}:`, error));
 }
 
+// This runs after 'navbar.html' is injected (in attachNavHandlers, for example)
+function enableHamburgerMenu() {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    if (!hamburgerBtn || !navLinks) {
+        console.error("Hamburger or navLinks not found!");
+        return;
+    }
+
+    hamburgerBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+}
+
 // ------------------------------------------------------
 // 2. loading navbar and footer document dynamically
 // ------------------------------------------------------
@@ -82,6 +97,19 @@ function attachNavHandlers() {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
+        }
+    });
+
+    enableHamburgerMenu();
+
+    document.addEventListener('click', (e) => {
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+        if (!hamburgerBtn || !navLinks) return;
+
+        // If the click is NOT inside the hamburger or nav-links, close
+        if (!hamburgerBtn.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('open');
         }
     });
 }

@@ -74,7 +74,6 @@
 
 html {
     scroll-behavior: smooth;
-    /* Keep smooth scrolling on html if you like */
     height: 100%;
     margin: 0;
     padding: 0;
@@ -87,7 +86,6 @@ body {
     /* Body now handles scrolling */
     scroll-behavior: smooth;
     height: 100%;
-    /* or min-height: 100%; see note below */
     margin: 0;
     padding: 0;
 
@@ -102,19 +100,15 @@ body {
             var(--gradient-middle) 50%,
             var(--gradient-end) 100%);
     background-attachment: fixed;
-
-    /* min-height: 100vh; <-- also an option if you prefer viewport-based height */
 }
 
 main {
     flex: 1;
-    /* This tells main to expand and push the footer down */
+    /* Expand main to push footer down */
 }
 
-/* Make main visible when JavaScript removes the hidden class */
 .visible {
     display: block;
-    /* Restore layout */
 }
 
 /***************************************************
@@ -123,10 +117,17 @@ main {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
+    /* Less horizontal padding for mobile */
 }
 
-/* Generic card style used site-wide */
+@media (min-width: 769px) {
+    .container {
+        padding: 0 2rem;
+        /* More padding on larger screens */
+    }
+}
+
 .card {
     background: var(--card-bg);
     border-radius: 15px;
@@ -136,7 +137,7 @@ main {
 }
 
 /***************************************************
-  THEME TOGGLE (floating button)
+  THEME TOGGLE
 ****************************************************/
 .theme-toggle {
     position: relative;
@@ -146,11 +147,9 @@ main {
     padding: 0.75rem 1.25rem;
     border-radius: 50px;
     cursor: pointer;
-    /* Pointer cursor for the toggle container */
     transition: transform 0.3s ease;
 }
 
-/* Optional: hover effect */
 .theme-toggle:hover {
     transform: scale(1.05);
 }
@@ -160,15 +159,12 @@ main {
     width: 48px;
     height: 24px;
     cursor: pointer;
-    /* Pointer cursor for the toggle switch */
 }
 
 .toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
-    cursor: pointer;
-    /* Pointer cursor for the checkbox input */
 }
 
 .toggle-slider {
@@ -180,8 +176,6 @@ main {
     background-color: #ccc;
     border-radius: 24px;
     transition: background-color 0.4s;
-    cursor: pointer;
-    /* Pointer cursor for the slider */
 }
 
 .toggle-circle {
@@ -196,37 +190,25 @@ main {
     align-items: center;
     justify-content: center;
     transition: transform 0.4s;
-    cursor: pointer;
-    /* Pointer cursor for the moving circle */
 }
 
 .toggle-circle img.toggle-icon {
     width: 12px;
     height: 12px;
     pointer-events: none;
-    /* Disable interaction with the icon */
 }
 
-/* Toggle switch active (checked) state */
+/* Checkbox checked state */
 input:checked+.toggle-slider {
     background-color: var(--primary-color);
 }
 
 input:checked+.toggle-slider .toggle-circle {
     transform: translateX(24px);
-    /* Move the circle to the right */
-}
-
-@media (max-width: 768px) {
-    .theme-toggle {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.5rem 1rem;
-    }
 }
 
 /***************************************************
-  NAVBAR
+  FLOATING NAVBAR (All Viewports)
 ****************************************************/
 .navbar {
     position: fixed;
@@ -235,77 +217,182 @@ input:checked+.toggle-slider .toggle-circle {
     transform: translateX(-50%);
     width: calc(100% - 2rem);
     max-width: 1100px;
+    border-radius: 50px;
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
-    border-radius: 50px;
-    z-index: 1000;
     backdrop-filter: blur(10px);
-}
-
-.nav-content {
+    z-index: 1000;
+  }
+  
+  /* The main navbar content container */
+  .nav-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-}
-
-.nav-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.nav-links {
+    justify-content: space-between;
+    padding: 1rem 1rem;
+  }
+  
+  /* 
+     We use .nav-right to position the dropdown under
+     the hamburger for small screens
+  */
+  .nav-right {
+    position: relative; /* key for absolutely positioning .nav-links below hamburger */
     display: flex;
-    gap: 1.5rem;
-}
+    align-items: left;
+    gap: 1rem;
+  }
+  
+  /* Hamburger icon */
+  .hamburger {
+    display: inline-block;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+  }
 
-.nav-links a {
+  .hamburger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--text-color);
+    border-radius: 3px;
+    transition: 0.25s ease-in-out;
+  }
+
+  .hamburger span:nth-child(1) {
+    top: 0;
+  }
+
+  .hamburger span:nth-child(2) {
+    top: 10px;
+  }
+  
+  .hamburger span:nth-child(3) {
+    top: 20px;
+  }
+  
+  /* .nav-links: floating dropdown (hidden by default) */
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 0.5rem); /* just below hamburger */
+    right: 20;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    z-index: 9999;
+  
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Show it when .open is toggled in JS */
+  .nav-links.open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  
+  /* Link styles */
+  .nav-links a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    border-radius: 25px;
-
-    /* Add transition for color AND transform: */
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-links a:hover {
-    /* Scale up a bit, matching the .theme-toggle hover effect: */
-    transform: scale(1.05);
-
-    /* If you still want a color change or background on hover, keep them: */
+    border-radius: 4px;
+    transition: color 0.3s, background-color 0.3s;
+  }
+  .nav-links a:hover {
+    background-color: var(--dark-accent);
     color: var(--primary-color);
-}
-
-.nav-links a.active {
+  }
+  .nav-links a.active {
     color: var(--primary-color);
     font-weight: 600;
-}
+  }
+  
+  /***************************************************
+    MEDIA QUERIES
+  ****************************************************/
+  /* On larger screens, show links in a row and hide the hamburger */
+  @media (min-width: 769px) {
+    .nav-content {
+      padding: 1rem 2rem;
+    }
+  
+    .hamburger {
+      display: none; 
+    }
+  
+    /* .nav-links is no longer an absolute dropdown; revert to inline row */
+    .nav-links {
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 50px;
+      padding: 0;
+      margin-left: 1rem;
+    }
+  }
 
-@media (max-width: 768px) {
+/***************************************************
+    DESKTOP/LARGER SCREENS
+  ****************************************************/
+@media (min-width: 769px) {
     .navbar {
-        width: calc(100% - 1rem);
-        top: 0.5rem;
+        position: fixed;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 2rem);
+        max-width: 1100px;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
     }
 
     .nav-content {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0.75rem 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
     }
 
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Show nav links inline on desktop */
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    .nav-links a {
-        padding: 0.25rem 0.75rem;
-        font-size: 0.9rem;
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 50px;
+        padding: 0;
     }
 }
 
@@ -316,55 +403,15 @@ footer {
     text-align: center;
     padding: 2rem;
     background-color: var(--accent-color);
-    /* You can also set text-color if needed */
-    /* color: var(--text-color); */
 }
 
-/***************************************************
-  Section
-****************************************************/
-.section {
-    background: var(--card-bg);
-    border-radius: 15px;
-    padding: 3rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--card-shadow);
-}
-
-.section h2 {
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 3px solid var(--accent-color);
-}
-
-.section-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.section-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-    font-size: 1.1rem;
-    text-align: justify;
-}
-
-.section-content p:last-child {
-    margin-bottom: 0;
-}
-
-/* Footer Styles */
+/* or the .site-footer container approach from your original code: */
 .site-footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
     padding: 4rem 2rem 2rem;
     margin-top: 4rem;
     border-top: 1px solid var(--footer-border);
-
-    /* If you don’t want the entire footer text left-aligned, 
-       you can set text-align: left for the containers or h4 only. */
     text-align: left;
 }
 
@@ -378,9 +425,10 @@ footer {
 }
 
 .footer-section h4 {
-    /* Titles left-aligned */
     text-align: left;
     color: var(--footer-text);
+    position: relative;
+    margin-bottom: 1rem;
 }
 
 .footer-section h4::after {
@@ -410,7 +458,7 @@ footer {
 .icon:hover,
 .icon:focus {
     filter: invert(34%) sepia(41%) saturate(1400%) hue-rotate(210deg) brightness(90%) contrast(90%);
-    transform: translateY(-3px); /* Add a subtle movement on hover */
+    transform: translateY(-3px);
 }
 
 .icon-linkedin {
@@ -448,7 +496,7 @@ footer {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--footer-border);
     border-radius: 4px;
     background-color: white;
     transition: var(--transition);
@@ -477,7 +525,7 @@ footer {
 }
 
 .submit-btn:hover {
-    background-color: var(--hover-color);
+    filter: brightness(90%);
     transform: translateY(-2px);
 }
 
@@ -493,28 +541,6 @@ footer {
     gap: 1rem;
 }
 
-.copyright {
-    color: var(--text-color);
-    font-size: 0.9rem;
-}
-
-.footer-legal {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.footer-legal a {
-    color: var(--text-color);
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-legal a:hover {
-    color: var(--primary-color);
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
@@ -528,4 +554,48 @@ footer {
     .footer-legal {
         justify-content: center;
     }
+}
+
+.border-color {
+    --border-color: #eaeaea;
+}
+
+.border-color-dark {
+    --border-color: #4e5a66;
+}
+
+
+/***************************************************
+  SECTION STYLES (For About/Resume)
+****************************************************/
+.section {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.section-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.section-content p:last-child {
+    margin-bottom: 0;
 }
