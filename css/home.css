@@ -56,12 +56,19 @@
   HERO / INTRO SECTION (HOME PAGE)
 ****************************************************/
 .home-intro-section {
-  height: 100vh;
+  /* The section spans at least the full viewport height 
+     minus some space (e.g., 6rem) for the fixed navbar + breathing room */
+  min-height: calc(100vh - 6rem);
+
+  /* Center the content (e.g., profile image + text) */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: max(4rem, 10vh);
+
+  /* No big margin-top needed, since we’re offsetting 
+     the navbar’s space via min-height */
+  margin-top: 7rem;
   padding: 0 2rem;
 }
 

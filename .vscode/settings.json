@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "yrezaei.github.io"
+    "liveServer.settings.multiRootWorkspaceName": "yrezaei.github.io",
+    "liveServer.settings.fullReload": true,
+    "liveServer.settings.root": "/"
 }

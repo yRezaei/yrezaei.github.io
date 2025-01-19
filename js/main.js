@@ -38,11 +38,11 @@ function enableHamburgerMenu() {
 // ------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
 
-    loadHTML('navbar-placeholder', 'navbar.html', () => {
+    loadHTML('navbar-placeholder', '/html/navbar.html', () => {
         attachNavHandlers();
     });
 
-    loadHTML('footer-placeholder', 'footer.html', () => {
+    loadHTML('footer-placeholder', '/html/footer.html', () => {
         attachFooterHandlers();
     });
 });
@@ -83,7 +83,7 @@ function attachNavHandlers() {
     });
 
     // 1. Get the current page filename (e.g., "about.html")
-    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+    const currentFile = window.location.pathname.split('/').pop() || '/index.html';
 
     // 2. Query all nav links
     const navLinks = document.querySelectorAll('.nav-links a');
