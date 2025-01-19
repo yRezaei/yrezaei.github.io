@@ -65,8 +65,8 @@ function attachNavHandlers() {
     }
     if (themeIcon) {
         themeIcon.src = (savedTheme === 'dark')
-            ? 'assets/icons/moon.svg'
-            : 'assets/icons/sun.svg';
+            ? '/assets/icons/moon.svg'
+            : '/assets/icons/sun.svg';
     }
 
     // Theme toggle logic
@@ -77,8 +77,8 @@ function attachNavHandlers() {
 
         if (themeIcon) {
             themeIcon.src = (newTheme === 'dark')
-                ? 'assets/icons/moon.svg'
-                : 'assets/icons/sun.svg';
+                ? '/assets/icons/moon.svg'
+                : '/assets/icons/sun.svg';
         }
     });
 
