@@ -1,13 +1,8 @@
 [
     {
-      "title": "Scaling Your App the Right Way",
-      "description": "Insights into building distributed systems while keeping performance in check.",
-      "link": "https://example.com/scaling-apps"
-    },
-    {
-      "title": "The Power of TDD",
-      "description": "Explore how Test-Driven Development enhances maintainability and reduces bugs.",
-      "link": "https://example.com/tdd-article"
+      "title": "Agile Mystery",
+      "description": "Think Agile is dead? Fair enough—you’re not a fan of the word. Let’s call it whatever you prefer.",
+      "html": "/html/posts/agie_mystery.html"
     }
   ]
   

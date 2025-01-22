@@ -2,16 +2,11 @@
   {
     "title": "stdX",
     "description": "A collection of C++ module.",
-    "link": "https://example.com/scaling-apps"
+    "html": "/html/projects/stdx.html"
   },
   {
     "title": "Project One",
-    "description": "A brief description of this project.",
-    "link": "/html/projects.html"
-  },
-  {
-    "title": "Project Two",
-    "description": "Another project’s summary text goes here.",
-    "link": "https://github.com/yrezaei/project-two"
+    "description": "An attempt on creating my own website.",
+    "html": "/html/projects/website.html"
   }
 ]

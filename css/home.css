@@ -68,7 +68,6 @@
 
   /* No big margin-top needed, since we’re offsetting 
      the navbar’s space via min-height */
-  margin-top: 7rem;
   padding: 0 2rem;
 }
 
