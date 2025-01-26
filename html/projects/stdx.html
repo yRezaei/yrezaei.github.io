@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>stdX - Yashar A. Rezaei</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/prism.css">
 </head>
 
 <body>
@@ -14,13 +15,293 @@
 
     <!-- main contant -->
     <main>
-        
+        <h1 class="page-title">stdX</h1>
+        <div class="container">
+
+            <!-- Introduction / Overview -->
+            <section class="section">
+                <h2>A Modular C++ Library</h2>
+                <div class="section-content">
+                    
+                    <p>
+                        The <strong>stdX library</strong> is a versatile collection of C++ modules designed to enhance
+                        your
+                        development experience. It provides reusable, well-tested, and high-performance components such
+                        as a
+                        <strong>Logger</strong> for asynchronous logging and a <strong>Flag</strong> utility for
+                        managing bitmask
+                        enumerations.
+                    </p>
+                    <p>
+                        This library is built with <strong>CMake</strong> as the primary build system and supports
+                        integration
+                        with <strong>Conan 2</strong>, enabling seamless dependency management and modular
+                        configuration.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2>Features</h2>
+                <div class="section-content">
+                    
+                    <ol>
+                        <li>
+                            <strong>Modular Design</strong>: Each module (<code>logger</code>, <code>flag</code>, etc.)
+                            is
+                            self-contained and can be enabled or disabled individually.
+                        </li>
+                        <li>
+                            <strong>High Performance</strong>: Designed for multithreaded environments, ensuring robust
+                            and
+                            efficient operations.
+                        </li>
+                        <li>
+                            <strong>C++ Standards Compliance</strong>: Requires <strong>C++17</strong> or higher.
+                        </li>
+                        <li>
+                            <strong>Cross-Platform</strong>: Fully tested on major operating systems, including Windows,
+                            Linux,
+                            and macOS.
+                        </li>
+                        <li>
+                            <strong>Seamless Integration</strong>: Easily integrate with your project using
+                            <strong>CMake</strong>
+                            and <strong>Conan</strong>.
+                        </li>
+                        <li>
+                            <strong>Customizable Builds</strong>: Configure shared/static builds, module inclusion, and
+                            build
+                            types (<code>Debug</code>, <code>Release</code>, etc.).
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Supported Modules -->
+            <section class="section">
+                <h2>Supported Modules</h2>
+                <div class="section-content">
+                    
+                    <table style="width:100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--text-color);">
+                                <th style="text-align: left; padding: 0.5rem;">Module</th>
+                                <th style="text-align: left; padding: 0.5rem;">Description</th>
+                                <th style="text-align: left; padding: 0.5rem;">Key Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">
+                                    <strong><a href="https://github.com/yRezaei/stdX/blob/main/modules/flag/README.md"
+                                            target="_blank">flag</a></strong>
+                                </td>
+                                <td style="padding: 0.5rem;">
+                                    A utility for managing bitmask enums.
+                                </td>
+                                <td style="padding: 0.5rem;">
+                                    Type-safe flag manipulation, bitwise operations, validation, and customizable
+                                    behavior.
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">
+                                    <strong><a href="https://github.com/yRezaei/stdX/blob/main/modules/logger/README.md"
+                                            target="_blank">logger</a></strong>
+                                </td>
+                                <td style="padding: 0.5rem;">
+                                    An asynchronous logging utility.
+                                </td>
+                                <td style="padding: 0.5rem;">
+                                    Buffered logging, file rotation, custom log formatting, and support for
+                                    multithreaded
+                                    applications.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Building the Library -->
+            <section class="section">
+                <h2>Building the Library</h2>
+                <div class="section-content">
+
+                    <h3>Using CMake</h3>
+                    <ol>
+                        <li>
+                            <strong>Clone the repository:</strong>
+                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
+git clone https://github.com/yrezaei/stdX.git
+cd stdX
+</code></pre>
+                        </li>
+                        <li>
+                            <strong>Configure and build:</strong>
+                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DSTDX_ENABLE_FLAG=ON -DSTDX_ENABLE_LOGGER=ON
+cmake --build .
+</code></pre>
+                        </li>
+                        <li>
+                            <strong>Install the library (optional):</strong>
+                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
+cmake --install . --prefix /your/installation/path
+</code></pre>
+                        </li>
+                    </ol>
+
+                    <h3>Using Conan</h3>
+                    <ol>
+                        <li>
+                            <p>Create a <code>conanfile.txt</code> or <code>conanfile.py</code> and specify
+                                <code>stdX</code> as a
+                                dependency:</p>
+                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
+[requires]
+stdX/VERSION_NUMBER
+
+[options]
+stdX/*:enable_flag=True
+stdX/*:enable_logger=True
+</code></pre>
+                        </li>
+                        <li>
+                            <strong>Install dependencies and build:</strong>
+                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
+conan install . --output-folder=build --build=missing
+cd build
+cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
+cmake --build .
+</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Consuming the Library -->
+            <section class="section">
+                <h2>Consuming the Library</h2>
+                <div class="section-content">
+                    <h3>Using CMake</h3>
+                    <p>Include the desired modules in your <code>CMakeLists.txt</code>:</p>
+                    <pre class="code-box line-numbers"><code class="language-cmake line-numbers line-highlight">
+# Find and link the flag module
+find_package(flag REQUIRED)
+target_link_libraries(YOUR_TARGET PUBLIC stdX::flag)
+
+# Find and link the logger module
+find_package(logger REQUIRED)
+target_link_libraries(YOUR_TARGET PUBLIC stdX::logger)
+</code></pre>
+
+                    <h3>Using Conan</h3>
+                    <p>
+                        Add <code>stdX</code> to your <code>conanfile.txt</code> or <code>conanfile.py</code> as shown
+                        above.
+                        Use the <code>find_package</code> mechanism in CMake to locate and link the modules.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Customization and Options -->
+            <section class="section">
+                <h2>Customization and Options</h2>
+                <div class="section-content">
+                    <h3>CMake Options</h3>
+                    <table style="width:100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--text-color);">
+                                <th style="text-align: left; padding: 0.5rem;">Option</th>
+                                <th style="text-align: left; padding: 0.5rem;">Description</th>
+                                <th style="text-align: left; padding: 0.5rem;">Default</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">STDX_ENABLE_FLAG</td>
+                                <td style="padding: 0.5rem;">Enable the <code>flag</code> module.</td>
+                                <td style="padding: 0.5rem;">ON</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">STDX_ENABLE_LOGGER</td>
+                                <td style="padding: 0.5rem;">Enable the <code>logger</code> module.</td>
+                                <td style="padding: 0.5rem;">ON</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">BUILD_SHARED_LIBS</td>
+                                <td style="padding: 0.5rem;">Build shared libraries instead of static.</td>
+                                <td style="padding: 0.5rem;">OFF</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Conan Options</h3>
+                    <table style="width:100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--text-color);">
+                                <th style="text-align: left; padding: 0.5rem;">Option</th>
+                                <th style="text-align: left; padding: 0.5rem;">Description</th>
+                                <th style="text-align: left; padding: 0.5rem;">Default</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">stdX/*:enable_flag</td>
+                                <td style="padding: 0.5rem;">Enable the <code>flag</code> module.</td>
+                                <td style="padding: 0.5rem;">True</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">stdX/*:enable_logger</td>
+                                <td style="padding: 0.5rem;">Enable the <code>logger</code> module.</td>
+                                <td style="padding: 0.5rem;">True</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--text-color);">
+                                <td style="padding: 0.5rem;">stdX:shared</td>
+                                <td style="padding: 0.5rem;">Build shared libraries instead of static.</td>
+                                <td style="padding: 0.5rem;">False</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Contributing -->
+            <section class="section">
+                <div class="section-content">
+                    <h2>Contributing</h2>
+                    <ol>
+                        <li>Fork the repository.</li>
+                        <li>Create a feature branch.</li>
+                        <li>Submit a pull request with your changes.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- License -->
+            <section class="section">
+                <div class="section-content">
+                    <h2>License</h2>
+                    <p>
+                        The <strong>stdX</strong> library is licensed under the
+                        <a href="LICENSE" target="_blank">MIT License</a>. Feel free to use, modify, and distribute it
+                        as per the terms of the license.
+                    </p>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <!-- FOOTER (placeholder) -->
     <div id="footer-placeholder"></div>
     <!-- Scripts -->
     <script src="/js/main.js"></script>
+    <script src="/js/prism.js"></script>
 </body>
 
 </html>
