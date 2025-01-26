@@ -14,8 +14,128 @@
 
     <!-- main contant -->
     <main>
-        
+        <div class="container">
+            <section class="section">
+                <div class="section-content">
+                    <h2>Personal Website Project Vision</h2>
+                    <p>
+                        For a long time, I've been wanting to build a personal website that reflects who I am and
+                        what I do.
+                        This platform is intended to showcase my work, share insights from my career journey, and
+                        provide a
+                        space
+                        to explore the advanced software engineering practices I’ve learned through Robotics, the
+                        Automotive
+                        industry, and various system engineering applications.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section discussing project structure and openness -->
+            <section class="section" style="position: relative;">
+                <div class="section-content">
+                    <h2>Project Structure & Future Growth</h2>
+                    <p>
+                        Although this is my first ever project in HTML, CSS, and JavaScript, I’ve organized it to
+                        separate
+                        content
+                        from layout and logic. Each core module, page, or script lives in its own file, while
+                        essential data
+                        is
+                        stored in JSON under <code>assets/data/*.json</code>. This approach makes the site more
+                        readable,
+                        maintainable, and easily extendable over time. If anyone likes this structure, they can
+                        freely take
+                        (“fork”) this entire project, swap in their own data files, and publish a personal website
+                        with
+                        minimal
+                        effort. It’s all open and free of charge to use as a starting point.
+                    </p>
+                    <p>
+                        Over time, I plan to refine this structure so it’s even simpler to maintain: most CSS will
+                        be
+                        consolidated
+                        into more generic files, and new features will be added without impacting existing
+                        functionality.
+                        The goal
+                        is that anyone can simply tweak the JSON content for their personal data, pick a suitable
+                        CSS theme,
+                        and
+                        have a complete site ready to go.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Simple conceptual diagram to visually explain the structure -->
+            <section class="section">
+                <div class="section-content">
+                    <h2>Visual Overview</h2>
+                    <p>
+                        Below is a quick glimpse of some core folders in the project (trimmed for brevity). Each
+                        folder has
+                        a distinct purpose,
+                        so it’s easy to extend or customize your personal site:
+                    </p>
+
+                    <pre style="background-color: var(--card-bg); padding: 1rem; border-radius: 10px;">
+        yrezaei.github.io
+        ├── assets
+        │   ├── data
+        │   │   └── projects_info.json      <- JSON data for your Projects page
+        │   ├── icons
+        │   └── img
+        ├── css
+        │   ├── styles.css                  <- Main site-wide CSS
+        │   └── projects.css               <- Additional styling for Projects page
+        ├── html
+        │   ├── projects
+        │   │   ├── stdx.html
+        │   │   └── website.html
+        │   ├── about.html
+        │   ├── blog.html
+        │   └── projects.html
+        ├── js
+        │   ├── main.js                     <- General scripts (e.g., theme toggling)
+        │   └── projects.js                 <- Logic for Projects page
+        ├── index.html
+        └── ...
+        </pre>
+
+                    <p>
+                        Want to add a new feature or page? Here’s the basic process:
+                    </p>
+                    <ul>
+                        <li><strong>Add a New Data Entry:</strong> Update the relevant JSON file in
+                            <code>assets/data</code>
+                            with
+                            your new item (e.g., a new project or blog post).
+                        </li>
+                        <li><strong>Create or Update an HTML Page:</strong> Place your new page in the
+                            <code>html</code>
+                            folder, then
+                            reference it in the JSON so the site can automatically link to it.
+                        </li>
+                        <li><strong>Style It:</strong> Add or modify a <code>.css</code> file to suit your needs, or
+                            incorporate
+                            new styles into <code>styles.css</code> if they’re reusable.</li>
+                        <li><strong>JavaScript Logic:</strong> If needed, create a dedicated <code>.js</code> file
+                            or update
+                            an existing one to fetch data and render it on the page.</li>
+                        <li><strong>Reuse & Fork:</strong> The entire project is free to use. If you like this
+                            structure,
+                            feel free
+                            to fork the
+                            <a href="https://github.com/yrezaei/yrezaei.github.io" target="_blank">GitHub repo</a>,
+                            replace
+                            the JSON files
+                            with your own content, and have a personal website up in no time!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
     </main>
+
 
     <!-- FOOTER (placeholder) -->
     <div id="footer-placeholder"></div>
