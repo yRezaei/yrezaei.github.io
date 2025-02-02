@@ -135,10 +135,12 @@ main {
     /* Less horizontal padding for mobile */
 }
 
-@media (min-width: 769px) {
+@media (max-width: 600px) {
     .container {
-        padding: 0 2rem;
-        /* More padding on larger screens */
+        max-width: 100%;
+        margin: 0 0.5rem;
+        padding: 0;
+        box-sizing: border-box; /* Ensures padding is included in total width */
     }
 }
 
@@ -226,19 +228,30 @@ input:checked+.toggle-slider .toggle-circle {
 ****************************************************/
 .navbar {
     position: fixed;
-    top: 1rem;
+    /* Center horizontally */
     left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 2rem);
+    transform: translateX(-50.9%);
+    top: 1rem;
+    width: 95%;
     max-width: 1100px;
     border-radius: 50px;
-    background-color: var(--card-bg);
+    background: none;
     box-shadow: var(--card-shadow);
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
-/* The main navbar content container */
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;  /* top:0, right:0, bottom:0, left:0 */
+    border-radius: 50px;
+    background-color: var(--card-bg);
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+
 .nav-content {
     display: flex;
     align-items: center;
@@ -343,7 +356,7 @@ input:checked+.toggle-slider .toggle-circle {
     MEDIA QUERIES
   ****************************************************/
 /* On larger screens, show links in a row and hide the hamburger */
-@media (min-width: 769px) {
+@media (min-width: 600px) {
     .nav-content {
         padding: 1rem 2rem;
     }
@@ -373,14 +386,10 @@ input:checked+.toggle-slider .toggle-circle {
 /***************************************************
     DESKTOP/LARGER SCREENS
   ****************************************************/
-@media (min-width: 769px) {
+@media (min-width: 600px) {
     .navbar {
         position: fixed;
         top: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: calc(100% - 2rem);
-        max-width: 1100px;
         border-radius: 50px;
         backdrop-filter: blur(10px);
     }
@@ -559,7 +568,7 @@ footer {
     gap: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .footer-content {
         grid-template-columns: 1fr;
     }
@@ -589,31 +598,45 @@ footer {
 .section {
     background: var(--card-bg);
     border-radius: 15px;
-    padding: 3rem;
+    padding: 1rem;
     margin-bottom: 2rem;
     box-shadow: var(--card-shadow);
 }
 
 .section h2 {
     color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 3px solid var(--accent-color);
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.section h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.section bold-text {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .section-content {
-    max-width: 900px;
+    max-width: 95%;
     margin: 0 auto;
+    justify-content: space-between;
 }
 
-.section-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-    font-size: 1.1rem;
-    text-align: justify;
-}
-
-.section-content p:last-child {
-    margin-bottom: 0;
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+    .section {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border-radius: 10px; /* optional: smaller corner radius for mobile */
+    }
+    .section-content {
+        max-width: 100%;
+        margin: 0;
+    }
 }
