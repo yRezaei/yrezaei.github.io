@@ -234,7 +234,7 @@ input:checked+.toggle-slider .toggle-circle {
     top: 1rem;
     width: 95%;
     max-width: 1100px;
-    border-radius: 50px;
+    border-radius: 15px;
     background: none;
     box-shadow: var(--card-shadow);
     backdrop-filter: blur(10px);
@@ -245,7 +245,7 @@ input:checked+.toggle-slider .toggle-circle {
     content: "";
     position: absolute;
     inset: 0;  /* top:0, right:0, bottom:0, left:0 */
-    border-radius: 50px;
+    border-radius: 15px;
     background-color: var(--card-bg);
     opacity: 0.6;
     z-index: -1;
@@ -256,7 +256,7 @@ input:checked+.toggle-slider .toggle-circle {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1rem;
+    padding: 0.5rem 0.5rem;
 }
 
 /* 
@@ -274,6 +274,7 @@ input:checked+.toggle-slider .toggle-circle {
 /* Hamburger icon */
 .hamburger {
     display: inline-block;
+    margin-left: 0.5rem;
     width: 30px;
     height: 24px;
     position: relative;
@@ -353,44 +354,13 @@ input:checked+.toggle-slider .toggle-circle {
 }
 
 /***************************************************
-    MEDIA QUERIES
-  ****************************************************/
-/* On larger screens, show links in a row and hide the hamburger */
-@media (min-width: 600px) {
-    .nav-content {
-        padding: 1rem 2rem;
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    /* .nav-links is no longer an absolute dropdown; revert to inline row */
-    .nav-links {
-        position: static;
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-        transform: none;
-        display: flex;
-        flex-direction: row;
-        gap: 1.5rem;
-        background: transparent;
-        box-shadow: none;
-        border-radius: 50px;
-        padding: 0;
-        margin-left: 1rem;
-    }
-}
-
-/***************************************************
     DESKTOP/LARGER SCREENS
   ****************************************************/
 @media (min-width: 600px) {
     .navbar {
         position: fixed;
         top: 1rem;
-        border-radius: 50px;
+        border-radius: 15px;
         backdrop-filter: blur(10px);
     }
 
@@ -398,7 +368,7 @@ input:checked+.toggle-slider .toggle-circle {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 2rem;
+        padding: 0.5rem 0.5rem;
     }
 
     /* Hide hamburger on desktop */
@@ -418,7 +388,7 @@ input:checked+.toggle-slider .toggle-circle {
         gap: 1.5rem;
         background: transparent;
         box-shadow: none;
-        border-radius: 50px;
+        border-radius: 15px;
         padding: 0;
     }
 }

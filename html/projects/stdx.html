@@ -22,7 +22,7 @@
             <section class="section">
                 <h2>A Modular C++ Library</h2>
                 <div class="section-content">
-                    
+
                     <p>
                         The <strong>stdX library</strong> is a versatile collection of C++ modules designed to enhance
                         your
@@ -45,7 +45,7 @@
             <section class="section">
                 <h2>Features</h2>
                 <div class="section-content">
-                    
+
                     <ol>
                         <li>
                             <strong>Modular Design</strong>: Each module (<code>logger</code>, <code>flag</code>, etc.)
@@ -83,7 +83,7 @@
             <section class="section">
                 <h2>Supported Modules</h2>
                 <div class="section-content">
-                    
+
                     <table style="width:100%; border-collapse: collapse;">
                         <thead>
                             <tr style="border-bottom: 2px solid var(--text-color);">
@@ -134,24 +134,24 @@
                     <ol>
                         <li>
                             <strong>Clone the repository:</strong>
-                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
-git clone https://github.com/yrezaei/stdX.git
-cd stdX
-</code></pre>
+                            <pre class="code-box"><code class="language-bash line-numbers line-highlight">
+                                git clone https://github.com/yrezaei/stdX.git
+                                cd stdX
+                            </code></pre>
                         </li>
                         <li>
                             <strong>Configure and build:</strong>
-                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
-mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DSTDX_ENABLE_FLAG=ON -DSTDX_ENABLE_LOGGER=ON
-cmake --build .
-</code></pre>
+                            <pre class="code-box"><code class="language-bash line-numbers line-highlight">
+                                mkdir build && cd build
+                                cmake .. -DCMAKE_BUILD_TYPE=Release -DSTDX_ENABLE_FLAG=ON -DSTDX_ENABLE_LOGGER=ON
+                                cmake --build .
+                            </code></pre>
                         </li>
                         <li>
                             <strong>Install the library (optional):</strong>
-                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
-cmake --install . --prefix /your/installation/path
-</code></pre>
+                            <pre class="code-box"><code class="language-bash line-numbers line-highlight">
+                                cmake --install . --prefix /your/installation/path
+                            </code></pre>
                         </li>
                     </ol>
 
@@ -160,8 +160,9 @@ cmake --install . --prefix /your/installation/path
                         <li>
                             <p>Create a <code>conanfile.txt</code> or <code>conanfile.py</code> and specify
                                 <code>stdX</code> as a
-                                dependency:</p>
-                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
+                                dependency:
+                            </p>
+                            <pre class="code-box"><code class="language-bash line-numbers line-highlight">
 [requires]
 stdX/VERSION_NUMBER
 
@@ -172,7 +173,7 @@ stdX/*:enable_logger=True
                         </li>
                         <li>
                             <strong>Install dependencies and build:</strong>
-                            <pre class="code-box line-numbers"><code class="language-bash line-numbers line-highlight">
+                            <pre class="code-box"><code class="language-bash line-numbers line-highlight">
 conan install . --output-folder=build --build=missing
 cd build
 cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
@@ -189,7 +190,7 @@ cmake --build .
                 <div class="section-content">
                     <h3>Using CMake</h3>
                     <p>Include the desired modules in your <code>CMakeLists.txt</code>:</p>
-                    <pre class="code-box line-numbers"><code class="language-cmake line-numbers line-highlight">
+                    <pre class="code-box"><code class="language-cmake line-numbers line-highlight">
 # Find and link the flag module
 find_package(flag REQUIRED)
 target_link_libraries(YOUR_TARGET PUBLIC stdX::flag)

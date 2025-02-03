@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website - Yashar A. Rezaei</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/prism.css">
 </head>
 
 <body>
@@ -78,29 +79,29 @@
                         so it’s easy to extend or customize your personal site:
                     </p>
 
-                    <pre style="background-color: var(--card-bg); padding: 1rem; border-radius: 10px;">
-        yrezaei.github.io
-        ├── assets
-        │   ├── data
-        │   │   └── projects_info.json      <- JSON data for your Projects page
-        │   ├── icons
-        │   └── img
-        ├── css
-        │   ├── styles.css                  <- Main site-wide CSS
-        │   └── projects.css               <- Additional styling for Projects page
-        ├── html
-        │   ├── projects
-        │   │   ├── stdx.html
-        │   │   └── website.html
-        │   ├── about.html
-        │   ├── blog.html
-        │   └── projects.html
-        ├── js
-        │   ├── main.js                     <- General scripts (e.g., theme toggling)
-        │   └── projects.js                 <- Logic for Projects page
-        ├── index.html
-        └── ...
-        </pre>
+                    <pre><code class="language-treeview">
+    yrezaei.github.io
+    ├── assets
+    │   ├── data
+    │   │   └── projects_info.json  # JSON data for your Projects page
+    │   ├── icons
+    │   └── img
+    ├── css
+    │   ├── styles.css   # Main site-wide CSS
+    │   └── projects.css  # Additional styling for Projects page
+    ├── html
+    │   ├── projects
+    │   │   ├── stdx.html
+    │   │   └── website.html
+    │   ├── about.html
+    │   ├── blog.html
+    │   └── projects.html
+    ├── js
+    │   ├── main.js  # General scripts (e.g., theme toggling)
+    │   └── projects.js  # Logic for Projects page
+    ├── index.html
+    └── ...
+                    </code></pre>
 
                     <p>
                         Want to add a new feature or page? Here’s the basic process:
@@ -142,6 +143,7 @@
     <div id="footer-placeholder"></div>
     <!-- Scripts -->
     <script src="/js/main.js"></script>
+    <script src="/js/prism.js"></script>
 </body>
 
 </html>
