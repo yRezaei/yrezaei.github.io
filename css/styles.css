@@ -1,67 +1,36 @@
 /***************************************************
   GLOBAL THEME VARIABLES & RESET
 ****************************************************/
+
 :root {
-    /* Primary colors */
-    --primary-color: #3D52A0;
-    --secondary-color: #7091E6;
-    --accent-color: #8697C4;
-
-    /* Background colors */
-    --bg-color: #D3D9D4;
-    --card-bg: #ffffff;
-    --dark-accent: #c2cad893;
-
-    /* Text colors */
-    --text-color: #212A31;
+    color-scheme: light dark;
+    --primary-color: light-dark(#3D52A0, #7091E6);
+    --secondary-color: light-dark(#7091E6, #8697C4);
+    --accent-color: light-dark(#8697C4, #305f72);
+    --bg-color: light-dark(#D3D9D4, #212A31);
+    --card-bg: light-dark(#ffffff, #2E3944);
+    --dark-accent: light-dark(#c2cad893, #1c2a3b48);
+    --text-color: light-dark(#212A31, #D3D9D4);
     --text-light: #748D92;
-
-    /* Shadows, etc. */
-    --card-shadow: 0 2px 4px rgba(33, 42, 49, 0.1);
-
-    --gradient-start: #D3D9D4;
-    --gradient-middle: #c2cad893;
-    --gradient-end: #D3D9D4;
-
-    --footer-bg: #f8f9fa;
-    /* Light gray or white-ish background */
-    --footer-text: #212A31;
-    /* Match normal text color */
-    --footer-border: #eaeaea;
-    /* Light border color */
-
+    --card-shadow: light-dark(0 2px 4px rgba(33, 42, 49, 0.1), 0 2px 4px rgba(0, 0, 0, 0.3));
+    --gradient-start: light-dark(#D3D9D4, #000000);
+    --gradient-middle: light-dark(#c2cad893, #2c353b);
+    --gradient-end: light-dark(#D3D9D4, #000000);
+    --footer-bg: light-dark(#f8f9fa, #2E3944);
+    --footer-text: light-dark(#212A31, #D3D9D4);
+    --footer-border: light-dark(#eaeaea, #4e5a66);
     --transition: all 0.3s ease;
     --icon-size: 40px;
+}
+
+[data-theme="light"] {
+    color-scheme: light;
 }
 
 [data-theme="dark"] {
-    --primary-color: #7091E6;
-    --secondary-color: #8697C4;
-    --accent-color: #305f72;
-
-    --bg-color: #212A31;
-    --card-bg: #2E3944;
-    --dark-accent: #1c2a3b48;
-
-    --text-color: #D3D9D4;
-    --text-light: #748D92;
-
-    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-    --gradient-start: #000000;
-    --gradient-middle: #2c353b;
-    --gradient-end: #000000;
-
-    --footer-bg: #2E3944;
-    /* Dark background for the footer */
-    --footer-text: #D3D9D4;
-    /* Matches your dark text color */
-    --footer-border: #4e5a66;
-    /* Dark border color */
-
-    --transition: all 0.3s ease;
-    --icon-size: 40px;
+    color-scheme: dark;
 }
+
 
 /***************************************************
   RESET / GLOBAL

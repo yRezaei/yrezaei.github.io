@@ -57,42 +57,41 @@ function attachNavHandlers() {
     const themeIcon = document.getElementById('toggleIcon');
     const htmlElement = document.documentElement;
 
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    htmlElement.setAttribute('data-theme', savedTheme);
-    if (themeToggle) {
-        themeToggle.checked = (savedTheme === 'dark');
-    }
-    if (themeIcon) {
-        themeIcon.src = (savedTheme === 'dark')
-            ? '/assets/icons/moon.svg'
-            : '/assets/icons/sun.svg';
-    }
-
-    // Theme toggle logic
-    themeToggle?.addEventListener('change', () => {
-        const newTheme = themeToggle.checked ? 'dark' : 'light';
-        htmlElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+    // Function to update the theme
+    const updateTheme = (theme) => {
+        if (theme === 'system') {
+            htmlElement.removeAttribute('data-theme');
+            localStorage.removeItem('theme');
+        } else {
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
 
         if (themeIcon) {
-            themeIcon.src = (newTheme === 'dark')
+            themeIcon.src = (theme === 'dark')
                 ? '/assets/icons/moon.svg'
                 : '/assets/icons/sun.svg';
         }
-    });
+    };
 
-    // 1. Get the current page filename (e.g., "about.html")
-    const currentFile = window.location.pathname.split('/').pop() || '/index.html';
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    updateTheme(savedTheme);
 
-    // 2. Query all nav links
+    if (themeToggle) {
+        themeToggle.checked = (savedTheme === 'dark');
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
+            updateTheme(newTheme);
+        });
+    }
+
+    // Navigation link highlighting
+    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {
-        // Extract just the filename from each link's href (ignoring full domain or relative path)
         const linkFile = link.getAttribute('href').split('/').pop();
-
-        // 3. If the link filename matches currentFile, add "active" class
         if (linkFile === currentFile) {
             link.classList.add('active');
         } else {
@@ -107,12 +106,12 @@ function attachNavHandlers() {
         const navLinks = document.getElementById('navLinks');
         if (!hamburgerBtn || !navLinks) return;
 
-        // If the click is NOT inside the hamburger or nav-links, close
         if (!hamburgerBtn.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('open');
         }
     });
 }
+
 
 /** Called *after* the footer is injected */
 function attachFooterHandlers() {
